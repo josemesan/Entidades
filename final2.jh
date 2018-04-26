@@ -1,0 +1,71 @@
+enum TipoDia {
+	LAB, VIER, SAB, FEST, ESP
+    }
+enum TipoVia {
+    I, II
+}
+entity Observaciones {
+	texto String
+}
+entity Estacion {
+	nombre String,
+    nemo String maxlength(5),
+    via TipoVia,
+    visible Boolean    
+}   
+entity Linea {
+	nombre String,
+    visible Boolean
+}
+entity IntervaloOfertado {  
+    hora ZonedDateTime,
+    tipoDia TipoDia,
+    intervaloMax Integer,
+    intervaloMin Integer
+}
+entity RelacionFechaTipodia {
+	fecha ZonedDateTime,
+    tipoDia TipoDia,    
+}
+entity TablaTrenes {
+  	hora ZonedDateTime,
+    tipoDia TipoDia,
+    numeroTrenes Integer
+}
+entity IntervaloMin{
+	hora ZonedDateTime,
+	interMin Integer,
+    estacionMin String maxlength(5),
+    viaMin TipoVia,
+}
+entity IntervaloMax{
+	hora ZonedDateTime,
+	interMax Integer,
+    estacionMax String maxlength(5),
+    viamax TipoVia,
+}
+entity Datos {
+	fechaHora ZonedDateTime,
+	intervaloMedio Integer,    
+    desviacionMedia Integer,
+ 	tiempoVuelta Integer,
+    numeroTrenes Integer,
+	viajeros Integer,
+	toc Integer,
+	densidad Integer,
+	consumo Integer,
+	velocidad Integer,
+	cocheKm Integer
+	}    
+
+relationship OneToMany {     
+    Linea {estacion} to Estacion,
+    Linea {datos} to Datos,
+    Linea {tablaTrenes} to TablaTrenes,
+    Linea {intervaloOfertado} to IntervaloOfertado,
+    Datos {observaciones} to Observaciones
+}
+relationship OneToOne {  
+	Datos {intervaloMin} to IntervaloMin,
+    Datos {intervaloMax} to IntervaloMax
+}
