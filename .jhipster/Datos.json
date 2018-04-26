@@ -1,0 +1,85 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "linea",
+            "otherEntityName": "linea",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "intervaloMin",
+            "otherEntityName": "intervaloMin",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "datos"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "intervaloMax",
+            "otherEntityName": "intervaloMax",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "datos"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "observaciones",
+            "otherEntityName": "observaciones",
+            "otherEntityRelationshipName": "datos"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "fechaHora",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "intervaloMedio",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "desviacionMedia",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "tiempoVuelta",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "numeroTrenes",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "viajeros",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "toc",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "densidad",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "consumo",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "velocidad",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "cocheKm",
+            "fieldType": "Integer"
+        }
+    ],
+    "changelogDate": "20180426080648",
+    "entityTableName": "datos",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

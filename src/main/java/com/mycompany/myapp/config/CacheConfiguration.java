@@ -41,6 +41,20 @@ public class CacheConfiguration {
             cm.createCache(com.mycompany.myapp.domain.User.class.getName(), jcacheConfiguration);
             cm.createCache(com.mycompany.myapp.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(com.mycompany.myapp.domain.User.class.getName() + ".authorities", jcacheConfiguration);
+            cm.createCache(com.mycompany.myapp.domain.Observaciones.class.getName(), jcacheConfiguration);
+            cm.createCache(com.mycompany.myapp.domain.Estacion.class.getName(), jcacheConfiguration);
+            cm.createCache(com.mycompany.myapp.domain.Linea.class.getName(), jcacheConfiguration);
+            cm.createCache(com.mycompany.myapp.domain.Linea.class.getName() + ".estacions", jcacheConfiguration);
+            cm.createCache(com.mycompany.myapp.domain.Linea.class.getName() + ".datos", jcacheConfiguration);
+            cm.createCache(com.mycompany.myapp.domain.Linea.class.getName() + ".tablaTrenes", jcacheConfiguration);
+            cm.createCache(com.mycompany.myapp.domain.Linea.class.getName() + ".intervaloOfertados", jcacheConfiguration);
+            cm.createCache(com.mycompany.myapp.domain.IntervaloOfertado.class.getName(), jcacheConfiguration);
+            cm.createCache(com.mycompany.myapp.domain.RelacionFechaTipodia.class.getName(), jcacheConfiguration);
+            cm.createCache(com.mycompany.myapp.domain.TablaTrenes.class.getName(), jcacheConfiguration);
+            cm.createCache(com.mycompany.myapp.domain.IntervaloMin.class.getName(), jcacheConfiguration);
+            cm.createCache(com.mycompany.myapp.domain.IntervaloMax.class.getName(), jcacheConfiguration);
+            cm.createCache(com.mycompany.myapp.domain.Datos.class.getName(), jcacheConfiguration);
+            cm.createCache(com.mycompany.myapp.domain.Datos.class.getName() + ".observaciones", jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

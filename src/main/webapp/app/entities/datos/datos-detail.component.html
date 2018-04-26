@@ -1,0 +1,84 @@
+
+<div *ngIf="datos">
+    <h2><span jhiTranslate="pruebaEntidadApp.datos.detail.title">Datos</span> {{datos.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="pruebaEntidadApp.datos.fechaHora">Fecha Hora</span></dt>
+        <dd>
+            <span>{{datos.fechaHora | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="pruebaEntidadApp.datos.intervaloMedio">Intervalo Medio</span></dt>
+        <dd>
+            <span>{{datos.intervaloMedio}}</span>
+        </dd>
+        <dt><span jhiTranslate="pruebaEntidadApp.datos.desviacionMedia">Desviacion Media</span></dt>
+        <dd>
+            <span>{{datos.desviacionMedia}}</span>
+        </dd>
+        <dt><span jhiTranslate="pruebaEntidadApp.datos.tiempoVuelta">Tiempo Vuelta</span></dt>
+        <dd>
+            <span>{{datos.tiempoVuelta}}</span>
+        </dd>
+        <dt><span jhiTranslate="pruebaEntidadApp.datos.numeroTrenes">Numero Trenes</span></dt>
+        <dd>
+            <span>{{datos.numeroTrenes}}</span>
+        </dd>
+        <dt><span jhiTranslate="pruebaEntidadApp.datos.viajeros">Viajeros</span></dt>
+        <dd>
+            <span>{{datos.viajeros}}</span>
+        </dd>
+        <dt><span jhiTranslate="pruebaEntidadApp.datos.toc">Toc</span></dt>
+        <dd>
+            <span>{{datos.toc}}</span>
+        </dd>
+        <dt><span jhiTranslate="pruebaEntidadApp.datos.densidad">Densidad</span></dt>
+        <dd>
+            <span>{{datos.densidad}}</span>
+        </dd>
+        <dt><span jhiTranslate="pruebaEntidadApp.datos.consumo">Consumo</span></dt>
+        <dd>
+            <span>{{datos.consumo}}</span>
+        </dd>
+        <dt><span jhiTranslate="pruebaEntidadApp.datos.velocidad">Velocidad</span></dt>
+        <dd>
+            <span>{{datos.velocidad}}</span>
+        </dd>
+        <dt><span jhiTranslate="pruebaEntidadApp.datos.cocheKm">Coche Km</span></dt>
+        <dd>
+            <span>{{datos.cocheKm}}</span>
+        </dd>
+        <dt><span jhiTranslate="pruebaEntidadApp.datos.linea">Linea</span></dt>
+        <dd>
+            <div *ngIf="datos.linea">
+                <a [routerLink]="['/linea', datos.linea?.id]">{{datos.linea?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="pruebaEntidadApp.datos.intervaloMin">Intervalo Min</span></dt>
+        <dd>
+            <div *ngIf="datos.intervaloMin">
+                <a [routerLink]="['/intervalo-min', datos.intervaloMin?.id]">{{datos.intervaloMin?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="pruebaEntidadApp.datos.intervaloMax">Intervalo Max</span></dt>
+        <dd>
+            <div *ngIf="datos.intervaloMax">
+                <a [routerLink]="['/intervalo-max', datos.intervaloMax?.id]">{{datos.intervaloMax?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'datos/'+ datos.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

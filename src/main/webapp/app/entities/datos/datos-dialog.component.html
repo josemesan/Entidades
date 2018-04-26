@@ -1,0 +1,103 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myDatosLabel" jhiTranslate="pruebaEntidadApp.datos.home.createOrEditLabel">Create or edit a Datos</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!datos.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="datos.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="pruebaEntidadApp.datos.fechaHora" for="field_fechaHora">Fecha Hora</label>
+            <div class="d-flex">
+                <input id="field_fechaHora" type="datetime-local" class="form-control" name="fechaHora" [(ngModel)]="datos.fechaHora"
+                />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="pruebaEntidadApp.datos.intervaloMedio" for="field_intervaloMedio">Intervalo Medio</label>
+            <input type="number" class="form-control" name="intervaloMedio" id="field_intervaloMedio"
+                [(ngModel)]="datos.intervaloMedio" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="pruebaEntidadApp.datos.desviacionMedia" for="field_desviacionMedia">Desviacion Media</label>
+            <input type="number" class="form-control" name="desviacionMedia" id="field_desviacionMedia"
+                [(ngModel)]="datos.desviacionMedia" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="pruebaEntidadApp.datos.tiempoVuelta" for="field_tiempoVuelta">Tiempo Vuelta</label>
+            <input type="number" class="form-control" name="tiempoVuelta" id="field_tiempoVuelta"
+                [(ngModel)]="datos.tiempoVuelta" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="pruebaEntidadApp.datos.numeroTrenes" for="field_numeroTrenes">Numero Trenes</label>
+            <input type="number" class="form-control" name="numeroTrenes" id="field_numeroTrenes"
+                [(ngModel)]="datos.numeroTrenes" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="pruebaEntidadApp.datos.viajeros" for="field_viajeros">Viajeros</label>
+            <input type="number" class="form-control" name="viajeros" id="field_viajeros"
+                [(ngModel)]="datos.viajeros" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="pruebaEntidadApp.datos.toc" for="field_toc">Toc</label>
+            <input type="number" class="form-control" name="toc" id="field_toc"
+                [(ngModel)]="datos.toc" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="pruebaEntidadApp.datos.densidad" for="field_densidad">Densidad</label>
+            <input type="number" class="form-control" name="densidad" id="field_densidad"
+                [(ngModel)]="datos.densidad" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="pruebaEntidadApp.datos.consumo" for="field_consumo">Consumo</label>
+            <input type="number" class="form-control" name="consumo" id="field_consumo"
+                [(ngModel)]="datos.consumo" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="pruebaEntidadApp.datos.velocidad" for="field_velocidad">Velocidad</label>
+            <input type="number" class="form-control" name="velocidad" id="field_velocidad"
+                [(ngModel)]="datos.velocidad" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="pruebaEntidadApp.datos.cocheKm" for="field_cocheKm">Coche Km</label>
+            <input type="number" class="form-control" name="cocheKm" id="field_cocheKm"
+                [(ngModel)]="datos.cocheKm" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="pruebaEntidadApp.datos.linea" for="field_linea">Linea</label>
+            <select class="form-control" id="field_linea" name="linea" [(ngModel)]="datos.linea" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="lineaOption.id === datos.linea?.id ? datos.linea : lineaOption" *ngFor="let lineaOption of lineas; trackBy: trackLineaById">{{lineaOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="pruebaEntidadApp.datos.intervaloMin" for="field_intervaloMin">Intervalo Min</label>
+            <select class="form-control" id="field_intervaloMin" name="intervaloMin" [(ngModel)]="datos.intervaloMin">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="intervaloMinOption.id === datos.intervaloMin?.id ? datos.intervaloMin : intervaloMinOption" *ngFor="let intervaloMinOption of intervalomins; trackBy: trackIntervaloMinById">{{intervaloMinOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="pruebaEntidadApp.datos.intervaloMax" for="field_intervaloMax">Intervalo Max</label>
+            <select class="form-control" id="field_intervaloMax" name="intervaloMax" [(ngModel)]="datos.intervaloMax">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="intervaloMaxOption.id === datos.intervaloMax?.id ? datos.intervaloMax : intervaloMaxOption" *ngFor="let intervaloMaxOption of intervalomaxes; trackBy: trackIntervaloMaxById">{{intervaloMaxOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

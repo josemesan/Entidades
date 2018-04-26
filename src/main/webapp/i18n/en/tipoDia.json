@@ -1,0 +1,12 @@
+{
+    "pruebaEntidadApp": {
+        "TipoDia" : {
+            "null": "",
+            "LAB": "LAB",
+            "VIER": "VIER",
+            "SAB": "SAB",
+            "FEST": "FEST",
+            "ESP": "ESP"
+        }
+    }
+}
